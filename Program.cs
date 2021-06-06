@@ -31,17 +31,33 @@ namespace op_lab7
             Console.CursorVisible = false;
 
 
-                Console.WriteLine(Choise(menuFifure));
+            Console.WriteLine(Choise(menuFifure));
             PrintBoard(mineBoard);
             while (true) 
             {
                 string selectedMenuItem = MenuForChess.DrawMenu(addNewFigure);
                 if (selectedMenuItem == "Добавить ещё одину фигуру")
-                    Choise(menuFifure);
+                {
+                    string fName = Choise(menuFifure);
+                    var figure = FiguresFactory.CreateFigure(fName, mineBoard);
+                    figure.SetPosition(SetPlayerCell(mineBoard));
+                }
                 else if (selectedMenuItem == "Закончить")
                     break;
             } 
             Console.Clear();
+
+
+            //foreach (var pos in figura.possiblePositions)
+            //{
+            //    foreach (var cell in mineBoard.board)
+            //    {
+            //        if(pos.Equals(cell))
+            //            cell.Highlite(true);
+            //    }
+
+            //    figura.possiblePositions.Remove(pos);
+            //}
         }
         
         static string Choise(List<string> menu)
@@ -100,6 +116,7 @@ namespace op_lab7
                     break;
             }
         }
+
 
     }
 }

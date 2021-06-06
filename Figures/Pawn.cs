@@ -7,8 +7,9 @@ namespace op_lab7.Figures
 {
     class Pawn : Figure
     {
-        public Pawn(string name, int x, int y, Board board) : base(name, x, y, board)
+        public Pawn(int x, int y, Board board) : base(x, y, board)
         {
+            name = "Пешка";
         }
 
         public override void CalculatePossibleKills()

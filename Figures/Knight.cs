@@ -6,8 +6,9 @@ namespace op_lab7.Figures
 {
     class Knight : Figure
     {
-        public Knight(string name, int x, int y, Board board) : base(name, x, y, board)
+        public Knight(int x, int y, Board board) : base(x, y, board)
         {
+            name = "Король";
         }
 
         public override void CalculatePossibleKills()

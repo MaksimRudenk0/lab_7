@@ -8,7 +8,7 @@ namespace op_lab7
 {
     public class Cell
     {
-
+        private bool highlited;
         public int x;
         public int y;
         public bool? occupied;
@@ -34,5 +34,7 @@ namespace op_lab7
                 return (x == c.x) && (y == c.y);
             }
         }
+
+        public void Highlite(bool value) => highlited = value;
     }
 }

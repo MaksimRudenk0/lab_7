@@ -25,9 +25,9 @@ namespace op_lab7
             }
         }
 
-        public void AddFigures(List<Figure> figures)
+        public void AddFigure(Figure figure)
         {
-            this.figures.AddRange(figures);
+            this.figures.Add(figure);
             CheckCells();
         }
 
@@ -67,8 +67,12 @@ namespace op_lab7
 
             for (int x = xStart; x < size; xStart++)
             {
-                if(!cell.Equals(board[yStart, x]))
-                result.Add(board[yStart, x]);
+                if (!cell.Equals(board[yStart, x]))
+                {
+                    var cellToHighlite = board[yStart, x];
+                    cellToHighlite.Highlite(true);
+                    result.Add(cellToHighlite);
+                }
                 yStart++;
             }
             #endregion
@@ -87,7 +91,11 @@ namespace op_lab7
             for (int y = yStart; y < size; yStart++)
             {
                 if (!cell.Equals(board[y, xStart]))
-                    result.Add(board[y, xStart]);
+                {
+                    var cellToHighlite = board[y, xStart];
+                    cellToHighlite.Highlite(true);
+                    result.Add(cellToHighlite);
+                }
                 xStart--;
             }
             #endregion
@@ -101,13 +109,21 @@ namespace op_lab7
             
             //вертикаль
             for (int y = 0; y < size; y++)
-                if(y!=cell.y)
-                    result.Add(board[y, cell.x]);
+                if (y != cell.y)
+                {
+                    var cellToHighlite = board[y, cell.x];
+                    cellToHighlite.Highlite(true);
+                    result.Add(cellToHighlite);
+                }
 
             //горизонталь
             for (int x = 0; x < size; x++)
                 if (x != cell.x)
-                    result.Add(board[cell.y, x]);
+                {
+                    var cellToHighlite = board[cell.y, x];
+                    cellToHighlite.Highlite(true);
+                    result.Add(cellToHighlite);
+                }
 
             return result;
         }

@@ -16,30 +16,14 @@ namespace op_lab7.Figures
         protected Cell position;
         protected UnicodeEncoding piece;
         protected List<Figure> possibleKills;
+        protected List<Cell> possiblePositions;
 
-        public Figure(string name, int x, int y, Board board, int? color = 1)
+        public Figure(int x, int y, Board board, int? color = 1)
         {
             this.color = color;
-            this.name = name;
             this.board = board;
             this.alive = true;
             this.position = new Cell(x, y);
-            switch (name)
-            {
-                case "Ферзь":
-                    //добавить иконки
-                    piece = new UnicodeEncoding();
-                    break;
-                case "Конь":
-                    //добавить иконки
-                    piece = new UnicodeEncoding();
-                    break;
-                case "Пешка":
-                    //добавить иконки
-                    piece = new UnicodeEncoding();
-                    break;
-            }
-
             possibleKills = new List<Figure>();
         }
 
@@ -61,6 +45,10 @@ namespace op_lab7.Figures
 
         public abstract void CalculatePossibleKills();
 
+        public void SetPosition(Cell pos)
+        {
+            position = pos;
+        }
     }
 }
 //https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
