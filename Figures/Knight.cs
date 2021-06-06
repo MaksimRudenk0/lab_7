@@ -2,31 +2,35 @@
 using System.Collections.Generic;
 using op_lab7;
 
-class Knight : Figure
+namespace op_lab7.Figures
 {
-    public Knight(string name, int x, int y, Board board) : base(name, x, y, board) { }
-
-    public override void CalculatePossibleKills()
+    class Knight : Figure
     {
-        //чикнуть на правильность направления хода
-        var availablePoss = new List<Cell>()
+        public Knight(string name, int x, int y, Board board) : base(name, x, y, board)
         {
-            new Cell(position.colNumber + 2, position.rowNumber + 1),
-            new Cell(position.colNumber + 1, position.rowNumber + 2),
-            new Cell(position.colNumber - 1, position.rowNumber + 2),
-            new Cell(position.colNumber - 2, position.rowNumber + 1),
-            new Cell(position.colNumber - 2, position.rowNumber - 1),
-            new Cell(position.colNumber - 1, position.rowNumber - 2),
-            new Cell(position.colNumber + 2, position.rowNumber + 1),
-            new Cell(position.colNumber + 1, position.rowNumber - 2),
-            new Cell(position.colNumber + 2, position.rowNumber - 1),
-        };
+        }
 
-        possibleKills = new List<Figure>();
-        foreach (var pos in availablePoss)
+        public override void CalculatePossibleKills()
         {
-            possibleKills.Add(board.GetFigureOnCell(pos));
+            //чикнуть на правильность направления хода
+            var availablePoss = new List<Cell>()
+            {
+                new Cell(position.x + 2, position.y + 1),
+                new Cell(position.x + 1, position.y + 2),
+                new Cell(position.x - 1, position.y + 2),
+                new Cell(position.x - 2, position.y + 1),
+                new Cell(position.x - 2, position.y - 1),
+                new Cell(position.x - 1, position.y - 2),
+                new Cell(position.x + 2, position.y + 1),
+                new Cell(position.x + 1, position.y - 2),
+                new Cell(position.x + 2, position.y - 1),
+            };
+
+            possibleKills = new List<Figure>();
+            foreach (var pos in availablePoss)
+            {
+                possibleKills.Add(board.GetFigureOnCell(pos));
+            }
         }
     }
-
 }

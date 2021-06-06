@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace op_lab7
+namespace op_lab7.Figures
 {
     public abstract class Figure
     {
@@ -16,6 +16,7 @@ namespace op_lab7
         protected Cell position;
         protected UnicodeEncoding piece;
         protected List<Figure> possibleKills;
+
         public Figure(string name, int x, int y, Board board, int? color = 1)
         {
             this.color = color;

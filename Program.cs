@@ -5,7 +5,6 @@ namespace op_lab7
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             Board mineBoard = new();
@@ -80,7 +79,6 @@ namespace op_lab7
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.Write(" X ");
                         Console.ResetColor();
-
                     }
                     
                     else Console.Write(" . ");
@@ -90,7 +88,7 @@ namespace op_lab7
             Console.WriteLine("\n\n");
         }
 
-        private void ShowFiguresSteps(int x, int y, string figeureName)
+        private void ShowFigureSteps(int x, int y, string figeureName)
         {
             switch (figeureName)
             {
@@ -101,7 +99,6 @@ namespace op_lab7
                 case "Ферзь":
                     break;
             }
-                
         }
 
     }
